@@ -7,5 +7,10 @@ public class Main {
 		Car_class merc = new Car_class("Mercedes", "CLA 45AMG");
 		merc.printManufacturer();
 		merc.printModel();
+		
+		Car_class bemer = new Car_class("BMW", "E46 M3 CSL");
+		bemer.printManufacturer();
+		bemer.printModel();
+		
 	}
 }
