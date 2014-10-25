@@ -16,6 +16,10 @@ public class Main {
 		System.out.println("Buna dimineata!");
 
 		System.out.println("Buna Seara!");
+		
+		System.out.println("Noapte buna!");
+		
+		
 
 	}
 }
