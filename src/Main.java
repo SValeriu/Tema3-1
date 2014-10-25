@@ -12,5 +12,6 @@ public class Main {
 		bemer.printManufacturer();
 		bemer.printModel();
 		
+		System.out.println("Buna Seara!");
 	}
 }
