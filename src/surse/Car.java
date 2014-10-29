@@ -1,3 +1,5 @@
+package surse;
+
 public interface Car {
 
 	void printManufacturer();

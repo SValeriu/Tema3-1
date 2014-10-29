@@ -1,8 +1,10 @@
+package surse;
+
 public class Car_class implements Car {
 
 	String brand, model;
 
-	Car_class(String brand, String model) {
+	public Car_class(String brand, String model) {
 		this.brand = brand;
 		this.model = model;
 	}

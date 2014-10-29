@@ -1,4 +1,11 @@
+package main;
+
+import surse.*;
+
 public class Main {
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Car_class ford = new Car_class("Ford", "Taurus");
 		ford.printManufacturer();
