@@ -1,32 +1,68 @@
 package main;
 
 import surse.*;
+import interfaces.*;
+import exceptions.*;
+
+/**
+ * Created by Ioan
+ * 
+ * This the main class of the project.
+ */
 
 public class Main {
 	/**
+	 * The entry point to the project
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Car_class ford = new Car_class("Ford", "Taurus");
-		ford.printManufacturer();
-		ford.printModel();
 		
-		Car_class merc = new Car_class("Mercedes", "CLA 45AMG");
-		merc.printManufacturer();
-		merc.printModel();
-		
-		Car_class bemer = new Car_class("BMW", "E46 M3 CSL");
-		bemer.printManufacturer();
-		bemer.printModel();
-		
-
-		System.out.println("Buna dimineata!");
-
-		System.out.println("Buna Seara!");
-		
-		System.out.println("Noapte buna!");
+		IConsumes BMW = new Car_luxury("Registered E92");
+		IConsumes Oldsmobile = new Car_oldies("Unregistered Alero");
+		Car Lastun = new Car_oldies("Unregistered Dacia");
+		Car Ferrari = new Car_luxury("Registered 599 GTO");
+		Car_luxury Mercedes = new Car_luxury("Registered Mercedes G63AMG");
 		
 		
-
+		try {
+            BMW.consumes();
+            BMW.pollutes();
+        } catch (IssuesException e) {
+            System.out.println("Exception thrown: " + e.getMessage());
+        }
+		try {
+			Oldsmobile.consumes();
+			Oldsmobile.pollutes();
+        } catch (IssuesException e) {
+            System.out.println("Exception thrown: " + e.getMessage());
+        }
+		
+		try {
+			Mercedes.pollutes();
+			Mercedes.consumes();
+			System.out.println("^^ fooarte putin, doar 20l/100km");
+		}catch (IssuesException e){
+			System.out.println("Exception thrown: " + e.getMessage());
+		}
+		
+		try {
+			((Car_oldies) Lastun).pollutes();
+		}catch (IssuesException e){
+			System.out.println("Exception thrown: " + e.getMessage());
+		}
+		
+		Lastun.setName("Dacia 500");
+		System.out.println("Numele nou este: " + Lastun.getName());
+		
+		try {
+			System.out.println("Numele vechi: " + Ferrari.getName());
+			 Ferrari.setName("Registered 458 Italia");
+			 System.out.println("Numele nou: " + Ferrari.getName());
+		}catch(Exception e){
+			e.printStackTrace();			
+		}
+		
+		
 	}
 }
